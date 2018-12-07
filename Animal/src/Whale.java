@@ -19,6 +19,11 @@ public class Whale extends Animal {
 		this.length = length;
 	}
 	
+	public String toString() {
+		return String.format("Name: %s\n Ocean: %s\n Weight: %d\n Max Speed: %d\n Length: %d", 
+				this.getName(), this.getMainOcean(), this.getWeight(), this.getMaxSpeed(), this.getLength());
+	}
+	
 	public String getMainOcean() {
 		return mainOcean;
 	}

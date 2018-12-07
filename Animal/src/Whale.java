@@ -19,8 +19,9 @@ public class Whale extends Animal {
 		this.length = length;
 	}
 	
+	// Override to create a neatly formatted toString method
 	public String toString() {
-		return String.format("Name: %s\n Ocean: %s\n Weight: %d\n Max Speed: %d\n Length: %d", 
+		return String.format("%s\n \tOcean: %s\n \tWeight: %d\n \tMax Speed: %d\n \tLength: %d", 
 				this.getName(), this.getMainOcean(), this.getWeight(), this.getMaxSpeed(), this.getLength());
 	}
 	

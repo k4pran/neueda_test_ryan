@@ -11,8 +11,8 @@ public class Whale extends Animal {
 		super();
 	}
 	
-	public Whale(String mainOcean, int weight, int maxSpeed, int length) {
-		super();
+	public Whale(String name, String mainOcean, int weight, int maxSpeed, int length) {
+		super(name);
 		this.mainOcean = mainOcean;
 		this.weight = weight;
 		this.maxSpeed = maxSpeed;

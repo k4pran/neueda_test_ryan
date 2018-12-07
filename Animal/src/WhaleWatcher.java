@@ -28,6 +28,9 @@ public class WhaleWatcher {
 		System.out.println("\n\n--The fastest whale--\n");
 		printWhalesByFastest(whales);
 		
+		System.out.println("\n\n--Statistics--\n");
+		System.out.printf("The average length of the whales is %.2f", getAverageLength(whales));
+
 		
 	}
 	
@@ -66,5 +69,18 @@ public class WhaleWatcher {
 			}
 		}
 		System.out.println(fastest.toString() + "\n");
+	}
+	
+	/**
+	 * Gets the average length of a list of whales
+	 * @param whales
+	 */
+	public static double getAverageLength(ArrayList<Whale> whales) {
+	
+		double lengthSum = 0;
+		for (Whale whale : whales) {
+			lengthSum += whale.getLength();
+		}
+		return lengthSum / whales.size();
 	}
 }

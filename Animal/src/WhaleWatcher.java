@@ -29,9 +29,13 @@ public class WhaleWatcher {
 		printWhalesByFastest(whales);
 		
 		System.out.println("\n\n--Statistics--\n");
-		System.out.printf("The average length of the whales is %.2f", getAverageLength(whales));
-
+		System.out.printf("The average length of the whales is %.2f meters \n", getAverageLength(whales));
 		
+		ArrayList<Whale> heaviestWhales = getHeaviestWhales(whales);
+		System.out.printf("The heaviest whales are: \n");
+		for (Whale whale : heaviestWhales) {
+			System.out.printf("\t%s at %d tonnes\n", whale.getName(), whale.getWeight());
+		}
 	}
 	
 	/**
@@ -72,8 +76,9 @@ public class WhaleWatcher {
 	}
 	
 	/**
-	 * Gets the average length of a list of whales
+	 * Gets average length of whales
 	 * @param whales
+	 * @return average length of a list of whales
 	 */
 	public static double getAverageLength(ArrayList<Whale> whales) {
 	
@@ -82,5 +87,31 @@ public class WhaleWatcher {
 			lengthSum += whale.getLength();
 		}
 		return lengthSum / whales.size();
+	}
+	
+	/**
+	 * Finds heaviest whales
+	 * @param whales
+	 * @return list of heaviest whales
+	 */
+	public static ArrayList<Whale> getHeaviestWhales(ArrayList<Whale> whales) {
+	
+		ArrayList<Whale> heaviestWhales = new ArrayList<Whale>();
+		Whale heaviest = whales.get(0);
+		for (Whale whale : whales) {
+			if (whale.getWeight() > heaviest.getWeight()) {
+				heaviest = whale;
+			}
+		}
+		
+		// Check for any equally long whales - ignoring whale already added to list
+		heaviestWhales.add(heaviest);
+		for (Whale whale : whales) {
+			if (whale.getWeight() == heaviest.getWeight() && 
+					!whale.getName().equalsIgnoreCase(heaviest.getName())) {
+				heaviestWhales.add(whale);
+			}
+		}
+		return heaviestWhales;
 	}
 }
